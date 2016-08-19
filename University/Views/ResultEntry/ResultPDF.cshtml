@@ -1,0 +1,90 @@
+﻿@model IEnumerable<University.Models.EnrollCourse>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Result PDF</title>
+</head>
+    <body>
+        <h1 align="center">Creative Thinking University</h1>
+        
+        <h3 align="center">Certificate</h3>
+        
+        <table align="center">
+            <tr>
+                <td>Student Name </td>
+                <td>  : </td>
+                <td> @ViewBag.studentName</td>
+            </tr>
+            <tr>
+                <td>Email </td>
+                <td>  : </td>
+                <td> @ViewBag.studentEmail</td>
+            </tr>
+            <tr>
+                <td>Department Name </td>
+                <td>  : </td>
+                <td> @ViewBag.studentDepartment</td>
+            </tr>
+            <tr>
+                <td>Reg. No. </td>
+                <td>  : </td>
+                <td> @ViewBag.studentRegNo</td>
+            </tr>
+            <tr>
+                <td>CGPA </td>
+                <td>  : </td>
+                <td> @ViewBag.result</td>
+            </tr>
+        </table>
+
+        <h3 align="center">Results Information</h3>
+        
+        <table border="1" align="center">
+            <tr>
+                <th>
+                    Course Code
+                </th>
+                <th>
+                    Course Name
+                </th>
+                <th>
+                    Grade
+                </th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.Course.CourseCode
+                    </td>
+                    <td>
+                        @item.Course.CourseName
+                    </td>
+
+                    <td>
+                        @if (item.GradeName != null)
+                        {
+                            @item.GradeName
+                        }
+                        @if (item.GradeName == null)
+                        {
+                            item.GradeName = "Not Graded Yet";
+                            @item.GradeName
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+
+        <div style="color: darkgoldenrod; text-align: center;"><h3>@ViewBag.NotEnrolled</h3></div>
+
+        <p align="center">&copy; @DateTime.Now.Date - Creative Thinking University</p>
+    </body>
+</html>

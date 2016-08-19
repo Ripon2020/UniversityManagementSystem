@@ -1,0 +1,78 @@
+﻿@model University.Models.Student
+
+@{
+    ViewBag.Title = "Student Information Details";
+}
+
+<h2>Student Information Details</h2>
+
+@*@if (ViewBag.registrationId != null)
+{
+    <div class="alert alert-success">Registration Complete Successfuly . Registration No: @(ViewBag.registrationId)</div>
+}*@
+
+<h3 style="color:forestgreen">@TempData["success"]</h3>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dt>
+            Department
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department.DepartmentCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentContactNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentContactNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RegistrationId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RegistrationId)
+        </dd>
+
+    </dl>
+</div>
+
